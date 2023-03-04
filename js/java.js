@@ -109,7 +109,7 @@ const dispalyDatas = (data) => {
                             <li>${data.features[3].feature_name ? data.features[3].feature_name : 'No data found'}</li>
                             </ul>
                         </div>
-                        <div class="w-1">
+                        <div class="w-1/2">
                         <h1 class="font-bold">Integrations</h1>
                             <ul class="list-decimal list-inside text-left pl-4">
                             ${data.integrations?.length ? data.integrations.map((name) =>`<li>${name}</li>`).join(''):'No Data Found'}
