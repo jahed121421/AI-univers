@@ -124,7 +124,7 @@ const dispalyDatas = (data) => {
                     <img class="w-100" src="${data.image_link[0] ? data.image_link[0] : 'No image found'}" alt="">
                     <button class="btn absolute right-2 top-2"">${data.accuracy.score  ? data.accuracy.score * 100 : ""}% accurcy</button>
                     <h1 class="font-bold p-2">${data.input_output_examples[0].input ? data.input_output_examples[0].input : 'No data found'}</h1>
-                    <p class="text-sm">${data.input_output_examples[25].output ? data.input_output_examples[0].output : 'No data found'}</p>
+                    <p class="text-sm">${data.input_output_examples[0].output ? data.input_output_examples[0].output : 'No data found'}</p>
                 </div>
 
     `
