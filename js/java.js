@@ -72,6 +72,7 @@ document.getElementById('showMore').addEventListener('click', function () {
 })
 
 const loadDetails = async (id) => {
+    console.log(id);
     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -81,39 +82,37 @@ const dispalyDatas = (data) => {
     const constainer = document.getElementById('container');
     const containerDiv = document.createElement('div');
     containerDiv.classList.add('md:flex', 'w-full', 'gap-5', 'border');
-    container.innerHTML = `
-    <div class="w-100 m-2">
-                    <h3>${data.description ? data.description : 'No data found'}</h3>
+    console.log(data)
+    constainer.innerHTML = `
+                    <div class="w-100 m-2">
+                    <h3 class="text-4xlw-32 ">${data.description ? data.description : 'No data found'}</h3>
                     <div class="flex justify-around">
-                        <div class="h-20 m-1 p-1 bg-green-200 rounded">
-                            ${data.pricing[0].plan}
-                            <p>${data.pricing[0].price ? data.pricing[0].price : 'No price'}</p>
+                        <div class="w-32 h-20 m-1 p-1 bg-green-200 rounded">
+                            <h1>${data.pricing ? data.pricing[0].plan : 'No data'}</h1>
+                            <p>${data.pricing ? data.pricing[0].price : 'No price'}</p>
                         </div>
-                        <div class="h-20 m-1 p-1 bg-green-200 rounded">
-                        ${data.pricing[1].plan}
-                        <p>${data.pricing[1].price ? data.pricing[1].price : 'No price'}</p>
+                        <div class="w-32 h-20 m-1 p-1 bg-green-200 rounded">
+                        <h1>${data.pricing ? data.pricing[1].plan : 'No data'}</h1>
+                        <p>${data.pricing ? data.pricing[1].price : 'No price'}</p>
                         </div>
-                        <div class="h-20 m-1 p-1 bg-green-200 rounded">
-                        ${data.pricing[2].plan}
-                        <p>${data.pricing[2].price ? data.pricing[2].price : 'No price'}</p>
+                        <div class="w-32 h-20 m-1 p-1 bg-green-200 rounded">
+                        <h1>${data.pricing ? data.pricing[2].plan : 'No data'}</h1>
+                        <p>${data.pricing ? data.pricing[2].price : 'No price'}</p>
                         </div>
                     </div>
                     <div class="flex gap-5">
                         <div class="w-1/2">
-                            features
+                            <h1  class="font-bold">Feature</h1>
                             <ul class="list-decimal list-inside text-left pl-4">
-                                <li>${data.features[1].feature_name ? data.features[1].feature_name : 'No data found'}</li>
-                                <li>${data.features[2].feature_name ? data.features[2].feature_name : 'No data found'}</li>
-                                <li>${data.features[3].feature_name ? data.features[3].feature_name : 'No data found'}</li>
-                                
+                            <li>${data.features[1].feature_name ? data.features[1].feature_name : 'No data found'}</li>
+                            <li>${data.features[2].feature_name ? data.features[2].feature_name : 'No data found'}</li>
+                            <li>${data.features[3].feature_name ? data.features[3].feature_name : 'No data found'}</li>
                             </ul>
                         </div>
                         <div class="w-1/2">
-                        integrations
+                        <h1 class="font-bold">Integrations</h1>
                             <ul class="list-decimal list-inside text-left pl-4">
-                                <li>${data.integrations[0] ? data.integrations[0] : 'No data'}</li>
-                                <li>${data.integrations[1] ? data.integrations[1] : 'No data'}</li>
-                                <li>${data.integrations[2] ? data.integrations[2] : 'No data'}</li>
+                            ${data.integrations?.length ? data.integrations.map((name) =>`<li>${name}</li>`).join(''):'No Data Found'}
                             </ul>
                         </div>
                         <div>
@@ -121,14 +120,13 @@ const dispalyDatas = (data) => {
                     </div>
                 </div>
                 <div class=" w-100 m-2 relative">
-                    <img class="w-100" src="${data.image_link[0]}" alt="">
-                    <button id="accurncybtn" class="btn absolute right-2 top-2"">${data.accuracy.score  ? data.accuracy.score * 100 : 'nodata'}% accurcy</button>
-                    <h1 class="font-bold p-2">${data.input_output_examples[0].input ? data.input_output_examples[0].input : 'No data found'}</h1>
-                    <p class="text-sm">${data.input_output_examples[0].output ? data.input_output_examples[0].output : 'No data found'}</p>
+                    <img class="w-100" src="${data.image_link ? data.image_link[0] : ''}" alt="">
+                    <span id="accurncybtn" class="btn text-gray-500 badge absolute right-2 top-2">${data.accuracy > 0  ? data.accuracy.score * 100 +'% accurcy' : ''}</span>
+                    <h1 class="font-bold p-2">${data.input_output_examples ? data.input_output_examples[0].input : 'No data found'}</h1>
+                    <p class="text-sm">${data.input_output_examples ? data.input_output_examples[0].output : 'No data found'}</p>
                 </div>
 
     `
-    constainer.appendChild('containerDiv');
 
   
 
