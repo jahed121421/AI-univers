@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai Unives</title>
+    <!-- font awsome link  -->
+    <script src="https://kit.fontawesome.com/963c85c3ec.js" crossorigin="anonymous"></script>
+    <!-- tailwind cdn link -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
+    <!-- fevicon link -->
+    <link rel="shortcut icon" href="./image/chip.png" type="image/x-icon">
+</head>
+
+<body class="m-16">
+    <header>
+        <div class="navbar-center bg-base-100 text-center">
+            <div class="navbar-center">
+                <a class="btn btn-ghost normal-case font-bold text-3xl">AI Universe Hub</a>
+            </div>
+            <div class="navbar-center p-10">
+                <a class="btn btn-primary">Sort By Date</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="grid lg:grid-cols-3 sm:grid-cols-1 justify-around" id="cardContainer">
+        </div>
+        <div class="text-center" id="spinner">
+            <div class=" m-16 bg-white">
+                <div class="flex justify-center items-center h-full">
+                    <img class="h-16 w-16" src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif"
+                        alt="">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="text-center">
+        <button id="showMore" class="btn btn-primary hidden">Show More</button>
+    </footer>
+    <!-- java file link -->
+    <script src="./js/java.js"></script>
+    <!--modal box-->
+    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+    <div class="modal">
+        <div class="modal-box relative max-w-full max-h-full">
+            <label for="my-modal-3" class="btn btn-sm absolute right-0 top-0">✕
+            </label>
+            <div id="container" class="flex justify-center text-center sm:flex-col md:flex-row">
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
